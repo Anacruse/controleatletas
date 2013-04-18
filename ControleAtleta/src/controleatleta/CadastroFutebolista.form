@@ -51,7 +51,7 @@
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelListaBoxeadores" min="-2" max="-2" attributes="1"/>
+                          <Component id="jLabelListaFutebolistas" min="-2" max="-2" attributes="1"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jButtonNovo" linkSize="1" max="32767" attributes="1"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -62,9 +62,7 @@
                       <Component id="jButtonExcluir" linkSize="1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonPesquisar" linkSize="1" min="-2" max="-2" attributes="1"/>
-                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
                       <Component id="jButtonSalvar" linkSize="1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonCancelar" linkSize="1" min="-2" pref="86" max="-2" attributes="0"/>
@@ -80,21 +78,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonNovo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonPesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelListaBoxeadores" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jButtonNovo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonPesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabelListaFutebolistas" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane4" min="-2" pref="124" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -114,6 +107,10 @@
       </Events>
     </Component>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jTabbedPane1.setEnabled(false);"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
@@ -587,13 +584,13 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelPremiacoes" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelPatrocinios" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jScrollPane2" min="-2" pref="237" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jButtonRemoverPremiacao" alignment="0" min="0" pref="0" max="32767" attributes="1"/>
-                                  <Component id="jButtonAdicionarPremiacao" alignment="0" min="-2" pref="58" max="-2" attributes="1"/>
+                                  <Component id="jButtonRemoverPatrocinio" alignment="0" min="0" pref="0" max="32767" attributes="1"/>
+                                  <Component id="jButtonAdicionarPatrocinio" alignment="0" min="-2" pref="58" max="-2" attributes="1"/>
                               </Group>
                           </Group>
                       </Group>
@@ -610,7 +607,7 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jComboBoxCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelPremiacoes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelPatrocinios" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -662,9 +659,9 @@
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jButtonAdicionarPremiacao" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonAdicionarPatrocinio" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButtonRemoverPremiacao" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonRemoverPatrocinio" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -768,9 +765,9 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelPremiacoes">
+            <Component class="javax.swing.JLabel" name="jLabelPatrocinios">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Premia&#xe7;&#xf5;es:"/>
+                <Property name="text" type="java.lang.String" value="Patroc&#xed;nios:"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -780,7 +777,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JList" name="jListPremiacoes">
+                <Component class="javax.swing.JList" name="jListPatrocinios">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                       <StringArray count="0"/>
@@ -789,20 +786,20 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButtonAdicionarPremiacao">
+            <Component class="javax.swing.JButton" name="jButtonAdicionarPatrocinio">
               <Properties>
                 <Property name="text" type="java.lang.String" value="+"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdicionarPremiacaoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdicionarPatrocinioActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonRemoverPremiacao">
+            <Component class="javax.swing.JButton" name="jButtonRemoverPatrocinio">
               <Properties>
                 <Property name="text" type="java.lang.String" value="-"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRemoverPremiacaoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRemoverPatrocinioActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -849,9 +846,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPesquisarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelListaBoxeadores">
+    <Component class="javax.swing.JLabel" name="jLabelListaFutebolistas">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Lista de Boxeadores:"/>
+        <Property name="text" type="java.lang.String" value="Lista de Futebolistas:"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane4">
@@ -861,7 +858,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTableListaBoxeadores">
+        <Component class="javax.swing.JTable" name="jTableListaFutebolistas">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="new javax.swing.table.DefaultTableModel &#xd;&#xa;(&#xd;&#xa;    null,&#xd;&#xa;    new String [] {&#xd;&#xa;        &quot;Nome&quot;, &quot;CPF&quot;&#xd;&#xa;    }&#xd;&#xa;)&#xd;&#xa;{&#xd;&#xa;@Override    &#xd;&#xa;public boolean isCellEditable(int rowIndex, int mColIndex) {&#xd;&#xa;        return false;&#xd;&#xa;    }&#xd;&#xa;}" type="code"/>
@@ -874,15 +871,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableListaBoxeadoresMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableListaFutebolistasMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButton1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
-      </Properties>
-    </Component>
   </SubComponents>
 </Form>
