@@ -1,8 +1,9 @@
-<?xml version="1.1" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -23,15 +24,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelTitulo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAno" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jLabelPatrocinio" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextFieldAno" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
-                          <Component id="jTextFieldTitulo" alignment="0" pref="346" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jTextFieldPatrocinio" pref="316" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jButtonAdicionar" min="-2" max="-2" attributes="0"/>
@@ -48,24 +43,15 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelPatrocinio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldPatrocinio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelAno" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldAno" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="jButtonAdicionar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jButtonAdicionar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -87,19 +73,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdicionarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelTitulo">
+    <Component class="javax.swing.JLabel" name="jLabelPatrocinio">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Titulo:"/>
+        <Property name="text" type="java.lang.String" value="Patrocinio:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldTitulo">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelAno">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ano:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldAno">
+    <Component class="javax.swing.JTextField" name="jTextFieldPatrocinio">
     </Component>
   </SubComponents>
 </Form>

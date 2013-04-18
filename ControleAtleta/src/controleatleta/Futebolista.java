@@ -7,6 +7,11 @@ public class Futebolista extends Atleta {
     private char categoria; // A=Amador P=Profissional
     private char capitao; // S=É capitão N=Não é capitão
     private ArrayList<Patrocinio> patrocinios;
+    private int numeroCamisa;
+    private String time;
+    private String posicao;
+    private int cartoesAmarelos;
+    private int cartoesVermelhos;
 
     public Futebolista(String nome) {
         super(nome);
@@ -20,15 +25,13 @@ public class Futebolista extends Atleta {
         this.categoria = categoria;
     }
 
-
-    public char getEstilo() {
+    public char getCapitao() {
         return capitao;
     }
 
-    public void setEstilo(char estilo) {
-        this.capitao = estilo;
+    public void setCapitao(char capitao) {
+        this.capitao = capitao;
     }
-
 
     public ArrayList<Patrocinio> getPatrocinios() {
         return patrocinios;
@@ -38,81 +41,45 @@ public class Futebolista extends Atleta {
         this.patrocinios = patrocinios;
     }
 
-    public String obterCategoriaPesoNome() {
-        return obterCategoriaPesoNome(this.getCategoria(), this.getPeso());
+    public int getNumeroCamisa() {
+        return numeroCamisa;
     }
 
-    public static String obterCategoriaPesoNome(char categoria, double peso) {
-        if (categoria == 'A') {
-            return obterCategoriaPesoNomeAmador(peso);
-        } else if (categoria == 'P') {
-            return obterCategoriaPesoNomeProfissional(peso);
-        } else {
-            return "";
-        }
+    public void setNumeroCamisa(int numeroCamisa) {
+        this.numeroCamisa = numeroCamisa;
     }
 
-    private static String obterCategoriaPesoNomeAmador(double peso) {
-        if (peso <= 48) {
-            return "Mosca Ligeiro";
-        } else if (peso <= 51) {
-            return "Mosca";
-        } else if (peso <= 54) {
-            return "Galo";
-        } else if (peso <= 57) {
-            return "Pena";
-        } else if (peso <= 57) {
-            return "Leve";
-        } else if (peso <= 64) {
-            return "M. M. Ligeiro";
-        } else if (peso <= 69) {
-            return "Meio Médio";
-        } else if (peso <= 75) {
-            return "Médio";
-        } else if (peso <= 81) {
-            return "Meio Pesado";
-        } else if (peso <= 91) {
-            return "Pesado";
-        } else {
-            return "Super Pesado";
-        }
+    public String getTime() {
+        return time;
     }
 
-    private static String obterCategoriaPesoNomeProfissional(double peso) {
-        if (peso <= 47.627) {
-            return "Palha";
-        } else if (peso <= 48.988) {
-            return "Mosca Ligeiro";
-        } else if (peso <= 50.802) {
-            return "Mosca";
-        } else if (peso <= 52.163) {
-            return "Super Mosca";
-        } else if (peso <= 53.524) {
-            return "Galo";
-        } else if (peso <= 55.338) {
-            return "Super Galo";
-        } else if (peso <= 57.153) {
-            return "Pena";
-        } else if (peso <= 58.967) {
-            return "Super Pena";
-        } else if (peso <= 61.235) {
-            return "Leve";
-        } else if (peso <= 63.503) {
-            return "M. M. Ligeiro";
-        } else if (peso <= 66.678) {
-            return "M. Médio";
-        } else if (peso <= 69.853) {
-            return "M. Ligeiro";
-        } else if (peso <= 72.575) {
-            return "Médio";
-        } else if (peso <= 76.364) {
-            return "Super Médio";
-        } else if (peso <= 79.379) {
-            return "Meio Pesado";
-        } else if (peso <= 90.719) {
-            return "Cruzador";
-        } else {
-            return "Pesado";
-        }
+    public void setTime(String time) {
+        this.time = time;
     }
+
+    public String getPosicao() {
+        return posicao;
+    }
+
+    public void setPosicao(String posicao) {
+        this.posicao = posicao;
+    }
+
+    public int getCartoesAmarelos() {
+        return cartoesAmarelos;
+    }
+
+    public void setCartoesAmarelos(int cartoesAmarelos) {
+        this.cartoesAmarelos = cartoesAmarelos;
+    }
+
+    public int getCartoesVermelhos() {
+        return cartoesVermelhos;
+    }
+
+    public void setCartoesVermelhos(int cartoesVermelhos) {
+        this.cartoesVermelhos = cartoesVermelhos;
+    }
+
+    
 }
