@@ -23,8 +23,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
-    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -563,23 +561,24 @@
                           <Component id="jLabelCategoria" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelCpitao" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelNumeroDaCamisa" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelPosicao" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelFuncaoTatica" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelCartoesAmarelos" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelTotalVitoriasNocaute" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextFieldTotalNocaute" alignment="0" max="32767" attributes="1"/>
-                          <Component id="jTextFieldTotalVitorias" alignment="0" max="32767" attributes="1"/>
-                          <Component id="jTextFieldTotalLutas" alignment="0" max="32767" attributes="1"/>
-                          <Component id="jTextFieldEnvergadura" alignment="0" max="32767" attributes="1"/>
-                          <Component id="jComboBoxEstilo" alignment="0" pref="234" max="32767" attributes="1"/>
-                          <Component id="jComboBoxCategoria" alignment="0" max="32767" attributes="1"/>
-                          <Group type="102" attributes="0">
-                              <Component id="jRadioButtonECapitao" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jRadioButtonNaoECapitao" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldTotalCartoesVermelhos" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jTextFieldTotalCartoesAmarelos" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jTextFieldTime" alignment="0" max="32767" attributes="1"/>
+                          <Component id="jComboBoxCategoria" alignment="0" pref="234" max="32767" attributes="1"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jSpinnerNumeroCamisa" max="32767" attributes="0"/>
+                                  <Component id="jComboBoxCapitao" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
+                          <Component id="jComboBoxFuncaoTatica" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -611,33 +610,32 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabelCpitao" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButtonECapitao" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButtonNaoECapitao" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxCapitao" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jComboBoxEstilo" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelNumeroDaCamisa" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jSpinnerNumeroCamisa" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabelTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldEnvergadura" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldTime" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelPosicao" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldTotalLutas" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelFuncaoTatica" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxFuncaoTatica" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabelCartoesAmarelos" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldTotalVitorias" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldTotalCartoesAmarelos" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabelTotalVitoriasNocaute" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldTotalNocaute" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldTotalCartoesVermelhos" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -686,38 +684,26 @@
                 <Property name="text" type="java.lang.String" value="N&#xfa;mero da camisa:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBoxEstilo">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
-                    <StringItem index="0" value="Ortodoxo (destro)"/>
-                    <StringItem index="1" value="Southpaw (canhoto)"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldEnvergadura">
+            <Component class="javax.swing.JTextField" name="jTextFieldTime">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelTime">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Time:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelPosicao">
+            <Component class="javax.swing.JLabel" name="jLabelFuncaoTatica">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Posi&#xe7;&#xe3;o do jogador:"/>
+                <Property name="text" type="java.lang.String" value="Fun&#xe7;&#xe3;o Tatica:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldTotalLutas">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldTotalVitorias">
+            <Component class="javax.swing.JTextField" name="jTextFieldTotalCartoesAmarelos">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelCartoesAmarelos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Total de Cart&#xf5;es amarelos:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldTotalNocaute">
+            <Component class="javax.swing.JTextField" name="jTextFieldTotalCartoesVermelhos">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelTotalVitoriasNocaute">
               <Properties>
@@ -761,21 +747,33 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRemoverPatrocinioActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButtonECapitao">
+            <Component class="javax.swing.JSpinner" name="jSpinnerNumeroCamisa">
               <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" maximum="999" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Sim"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButtonNaoECapitao">
+            <Component class="javax.swing.JComboBox" name="jComboBoxCapitao">
               <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="n&#xe3;o"/>
+                    <StringItem index="1" value="sim"/>
+                  </StringArray>
                 </Property>
-                <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBoxFuncaoTatica">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Goleiro"/>
+                    <StringItem index="1" value="Defesa"/>
+                    <StringItem index="2" value="Meio-Campo"/>
+                    <StringItem index="3" value="Ataque"/>
+                  </StringArray>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>

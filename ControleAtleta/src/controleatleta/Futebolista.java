@@ -9,7 +9,7 @@ public class Futebolista extends Atleta {
     private ArrayList<Patrocinio> patrocinios;
     private int numeroCamisa;
     private String time;
-    private String posicao;
+    private char funcaoTatica; //G= goleiro, D = defesa, M = meio campo, A = Ataque
     private int cartoesAmarelos;
     private int cartoesVermelhos;
 
@@ -57,12 +57,12 @@ public class Futebolista extends Atleta {
         this.time = time;
     }
 
-    public String getPosicao() {
-        return posicao;
+    public char getFuncaoTatica() {
+        return funcaoTatica;
     }
 
-    public void setPosicao(String posicao) {
-        this.posicao = posicao;
+    public void setFuncaoTatica(char funcaoTatica) {
+        this.funcaoTatica = funcaoTatica;
     }
 
     public int getCartoesAmarelos() {

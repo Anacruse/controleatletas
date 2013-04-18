@@ -12,6 +12,14 @@ import javax.swing.table.DefaultTableModel;
 
 public class CadastroFutebolista extends javax.swing.JFrame {
 
+    private final byte FUNCAO_TATICA_GOLEIRO_INDICE = 0;
+    private final byte FUNCAO_TATICA_DEFESA_INDICE = 1;
+    private final byte FUNCAO_TATICA_MEIO_CAMPO_INDICE = 2;
+    private final byte FUNCAO_TATICA_ATAQUE_INDICE = 3;
+    private final char FUNCAO_TATICA_GOLEIRO_VALOR = 'G';
+    private final char FUNCAO_TATICA_DEFESA_VALOR = 'D';
+    private final char FUNCAO_TATICA_MEIO_CAMPO_VALOR = 'M';
+    private final char FUNCAO_TATICA_ATAQUE_VALOR = 'A';
     private final byte SEXO_MASCULINO_INDICE = 0;
     private final byte SEXO_FEMININO_INDICE = 1;
     private final char SEXO_MASCULINO_VALOR = 'M';
@@ -51,7 +59,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         jTextFieldComplemento.setText(null);
         jTextFieldCpf.setText(null);
         jTextFieldDataNascimento.setText(null);
-        jTextFieldEnvergadura.setText("0.0");
+        jTextFieldTime.setText(null);
         jComboBoxEstado.setSelectedIndex(0);
         jTextFieldLogradouro.setText(null);
         jTextFieldNome.setText(null);
@@ -61,18 +69,20 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         jTextFieldPais.setText(null);
         jTextFieldPeso.setText("0.0");
         jTextFieldRg.setText(null);
-        jTextFieldTotalLutas.setText("0");
-        jTextFieldTotalNocaute.setText("0");
-        jTextFieldTotalVitorias.setText("0");
+        jComboBoxFuncaoTatica.setSelectedIndex(0);
+        jTextFieldTotalCartoesVermelhos.setText("0");
+        jTextFieldTotalCartoesAmarelos.setText("0");
         telefonesListModel.clear();
         patrocinioListModel.clear();
         jComboBoxSexo.setSelectedIndex(0);
         jComboBoxCategoria.setSelectedIndex(0);
-        jComboBoxEstilo.setSelectedIndex(0);
-        this.atualizarCategoriaPeso();
+        jSpinnerNumeroCamisa.setValue(1);
+        jComboBoxCapitao.setSelectedIndex(0);
+        this.atualizarCategoria();
     }
 
     private void preencherCampos() {
+        
         ArrayList<String> telefones;
         ArrayList<Patrocinio> patrocinios;
 
@@ -117,7 +127,31 @@ public class CadastroFutebolista extends javax.swing.JFrame {
                 jComboBoxSexo.setSelectedIndex(SEXO_FEMININO_INDICE);
                 break;
         }
+        
+        switch(umFutebolista.getCapitao()){
+            case E_CAPITAO_VALOR:
+                jComboBoxCapitao.setSelectedIndex(E_CAPITAO_INDICE);
+                break;
+            case NAO_E_CAPITAO_VALOR:
+                jComboBoxCapitao.setSelectedIndex(NAO_E_CAPITAO_INDICE);
+                break;
+        }
 
+        switch (umFutebolista.getFuncaoTatica()) {
+            case FUNCAO_TATICA_GOLEIRO_VALOR:
+                jComboBoxFuncaoTatica.setSelectedIndex(FUNCAO_TATICA_GOLEIRO_INDICE);
+                break;
+             case FUNCAO_TATICA_DEFESA_VALOR:
+                jComboBoxFuncaoTatica.setSelectedIndex(FUNCAO_TATICA_DEFESA_INDICE);
+                break;
+             case FUNCAO_TATICA_MEIO_CAMPO_VALOR:
+                jComboBoxFuncaoTatica.setSelectedIndex(FUNCAO_TATICA_MEIO_CAMPO_INDICE);
+                break;
+             case FUNCAO_TATICA_ATAQUE_VALOR:
+                jComboBoxFuncaoTatica.setSelectedIndex(FUNCAO_TATICA_ATAQUE_INDICE);
+                break;
+        }
+        
         switch (umFutebolista.getCategoria()) {
             case CATEGORIA_AMADOR_VALOR:
                 jComboBoxCategoria.setSelectedIndex(CATEGORIA_AMADOR_INDICE);
@@ -126,9 +160,14 @@ public class CadastroFutebolista extends javax.swing.JFrame {
                 jComboBoxCategoria.setSelectedIndex(CATEGORIA_PROFISSIONAL_INDICE);
                 break;
         }
+        
+        jSpinnerNumeroCamisa.setValue(umFutebolista.getNumeroCamisa());
+        
+        jTextFieldTime.setText(umFutebolista.getTime());
+        jTextFieldTotalCartoesAmarelos.setText(String.valueOf(umFutebolista.getCartoesAmarelos()));
+        jTextFieldTotalCartoesVermelhos.setText(String.valueOf(umFutebolista.getCartoesVermelhos()));
 
-
-        this.atualizarCategoriaPeso();
+        this.atualizarCategoria();
     }
 
     private boolean validarCampos() {
@@ -169,33 +208,35 @@ public class CadastroFutebolista extends javax.swing.JFrame {
                 return false;
             }
         }
+        /*
         try {
-            Double.parseDouble(jTextFieldEnvergadura.getText());
+            Double.parseDouble(jTextFieldTime.getText());
         } catch (Exception ex) {
             this.exibirInformacao("O valor do campo 'Envergadura' é inválido.");
-            jTextFieldEnvergadura.requestFocus();
+            jTextFieldTime.requestFocus();
             return false;
         }
         
         try {
-            Integer.parseInt(jTextFieldTotalLutas.getText());
+            Integer.parseInt(jTextFieldPosicao.getText());
         } catch (Exception ex) {
             this.exibirInformacao("O valor do campo 'Total de Lutas' é inválido.");
-            jTextFieldTotalLutas.requestFocus();
+            jTextFieldPosicao.requestFocus();
             return false;
         }
+        */
         try {
-            Integer.parseInt(jTextFieldTotalNocaute.getText());
+            Integer.parseInt(jTextFieldTotalCartoesVermelhos.getText());
         } catch (Exception ex) {
             this.exibirInformacao("O valor do campo 'Total de Nocautes' é inválido.");
-            jTextFieldTotalNocaute.requestFocus();
+            jTextFieldTotalCartoesVermelhos.requestFocus();
             return false;
         }
         try {
-            Integer.parseInt(jTextFieldTotalVitorias.getText());
+            Integer.parseInt(jTextFieldTotalCartoesAmarelos.getText());
         } catch (Exception ex) {
             this.exibirInformacao("O valor do campo 'Total de Vitórias' é inválido.");
-            jTextFieldTotalVitorias.requestFocus();
+            jTextFieldTotalCartoesAmarelos.requestFocus();
             return false;
         }
         return true;
@@ -210,7 +251,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         jTextFieldComplemento.setEnabled(modoAlteracao);
         jTextFieldCpf.setEnabled(modoAlteracao);
         jTextFieldDataNascimento.setEnabled(modoAlteracao);
-        jTextFieldEnvergadura.setEnabled(modoAlteracao);
+        jTextFieldTime.setEnabled(modoAlteracao);
         jComboBoxEstado.setEnabled(modoAlteracao);
         jTextFieldLogradouro.setEnabled(modoAlteracao);
         jTextFieldNome.setEnabled(modoAlteracao);
@@ -220,9 +261,9 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         jTextFieldPais.setEnabled(modoAlteracao);
         jTextFieldPeso.setEnabled(modoAlteracao);
         jTextFieldRg.setEnabled(modoAlteracao);
-        jTextFieldTotalLutas.setEnabled(modoAlteracao);
-        jTextFieldTotalNocaute.setEnabled(modoAlteracao);
-        jTextFieldTotalVitorias.setEnabled(modoAlteracao);
+        jComboBoxFuncaoTatica.setEnabled(modoAlteracao);
+        jTextFieldTotalCartoesVermelhos.setEnabled(modoAlteracao);
+        jTextFieldTotalCartoesAmarelos.setEnabled(modoAlteracao);
         jButtonNovo.setEnabled(modoAlteracao == false);
         jButtonAlterar.setEnabled(modoAlteracao == false && registroSelecionado == true);
         jButtonExcluir.setEnabled(modoAlteracao == false && registroSelecionado == true);
@@ -235,8 +276,10 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         jButtonRemoverPatrocinio.setEnabled(modoAlteracao);
         jComboBoxSexo.setEnabled(modoAlteracao);
         jComboBoxCategoria.setEnabled(modoAlteracao);
-        jComboBoxEstilo.setEnabled(modoAlteracao);
+        jSpinnerNumeroCamisa.setEnabled(modoAlteracao);
         jTableListaFutebolistas.setEnabled(modoAlteracao == false);
+        jComboBoxCapitao.setEnabled(modoAlteracao);
+
     }
 
     private void salvarRegistro() {
@@ -316,6 +359,34 @@ public class CadastroFutebolista extends javax.swing.JFrame {
                 break;
         }
 
+       switch (jComboBoxCapitao.getSelectedIndex()) {
+            case NAO_E_CAPITAO_INDICE:
+                umFutebolista.setCapitao(NAO_E_CAPITAO_VALOR);
+                break;
+            case E_CAPITAO_INDICE:
+                umFutebolista.setCapitao(E_CAPITAO_VALOR);
+                break;
+        }
+       
+       switch (jComboBoxFuncaoTatica.getSelectedIndex()) {
+            case FUNCAO_TATICA_GOLEIRO_INDICE:
+                umFutebolista.setFuncaoTatica(FUNCAO_TATICA_GOLEIRO_VALOR);
+                break;
+             case FUNCAO_TATICA_DEFESA_INDICE:
+                umFutebolista.setFuncaoTatica(FUNCAO_TATICA_DEFESA_VALOR);
+                break;
+             case FUNCAO_TATICA_MEIO_CAMPO_INDICE:
+                umFutebolista.setFuncaoTatica(FUNCAO_TATICA_MEIO_CAMPO_VALOR);
+                break;
+             case FUNCAO_TATICA_ATAQUE_INDICE:
+                umFutebolista.setFuncaoTatica(FUNCAO_TATICA_ATAQUE_VALOR);
+                break;
+        }
+       
+       umFutebolista.setTime(jTextFieldTime.getText());
+       umFutebolista.setCartoesAmarelos(Integer.parseInt(jTextFieldTotalCartoesAmarelos.getText()));
+       umFutebolista.setCartoesVermelhos(Integer.parseInt(jTextFieldTotalCartoesVermelhos.getText()));
+       umFutebolista.setNumeroCamisa((Integer)jSpinnerNumeroCamisa.getValue());
        
         if (novoRegistro == true) {
             controleFutebolista.adicionar(umFutebolista);
@@ -340,7 +411,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, info, "Atenção", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private void atualizarCategoriaPeso() {
+    private void atualizarCategoria() {
         char categoria;
         switch (jComboBoxCategoria.getSelectedIndex()) {
             case CATEGORIA_AMADOR_INDICE:
@@ -360,7 +431,6 @@ public class CadastroFutebolista extends javax.swing.JFrame {
 
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jButtonNovo = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -409,22 +479,21 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         jComboBoxCategoria = new javax.swing.JComboBox();
         jLabelCpitao = new javax.swing.JLabel();
         jLabelNumeroDaCamisa = new javax.swing.JLabel();
-        jComboBoxEstilo = new javax.swing.JComboBox();
-        jTextFieldEnvergadura = new javax.swing.JTextField();
+        jTextFieldTime = new javax.swing.JTextField();
         jLabelTime = new javax.swing.JLabel();
-        jLabelPosicao = new javax.swing.JLabel();
-        jTextFieldTotalLutas = new javax.swing.JTextField();
-        jTextFieldTotalVitorias = new javax.swing.JTextField();
+        jLabelFuncaoTatica = new javax.swing.JLabel();
+        jTextFieldTotalCartoesAmarelos = new javax.swing.JTextField();
         jLabelCartoesAmarelos = new javax.swing.JLabel();
-        jTextFieldTotalNocaute = new javax.swing.JTextField();
+        jTextFieldTotalCartoesVermelhos = new javax.swing.JTextField();
         jLabelTotalVitoriasNocaute = new javax.swing.JLabel();
         jLabelPatrocinios = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jListPatrocinios = new javax.swing.JList();
         jButtonAdicionarPatrocinio = new javax.swing.JButton();
         jButtonRemoverPatrocinio = new javax.swing.JButton();
-        jRadioButtonECapitao = new javax.swing.JRadioButton();
-        jRadioButtonNaoECapitao = new javax.swing.JRadioButton();
+        jSpinnerNumeroCamisa = new javax.swing.JSpinner();
+        jComboBoxCapitao = new javax.swing.JComboBox();
+        jComboBoxFuncaoTatica = new javax.swing.JComboBox();
         jButtonAlterar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
@@ -716,11 +785,9 @@ public class CadastroFutebolista extends javax.swing.JFrame {
 
         jLabelNumeroDaCamisa.setText("Número da camisa:");
 
-        jComboBoxEstilo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ortodoxo (destro)", "Southpaw (canhoto)" }));
-
         jLabelTime.setText("Time:");
 
-        jLabelPosicao.setText("Posição do jogador:");
+        jLabelFuncaoTatica.setText("Função Tatica:");
 
         jLabelCartoesAmarelos.setText("Total de Cartões amarelos:");
 
@@ -744,12 +811,11 @@ public class CadastroFutebolista extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(jRadioButtonECapitao);
-        jRadioButtonECapitao.setText("Sim");
+        jSpinnerNumeroCamisa.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
 
-        buttonGroup1.add(jRadioButtonNaoECapitao);
-        jRadioButtonNaoECapitao.setSelected(true);
-        jRadioButtonNaoECapitao.setText("Não");
+        jComboBoxCapitao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "não", "sim" }));
+
+        jComboBoxFuncaoTatica.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Goleiro", "Defesa", "Meio-Campo", "Ataque" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -762,21 +828,21 @@ public class CadastroFutebolista extends javax.swing.JFrame {
                     .addComponent(jLabelCategoria)
                     .addComponent(jLabelCpitao)
                     .addComponent(jLabelNumeroDaCamisa)
-                    .addComponent(jLabelPosicao)
+                    .addComponent(jLabelFuncaoTatica)
                     .addComponent(jLabelCartoesAmarelos)
                     .addComponent(jLabelTotalVitoriasNocaute))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldTotalNocaute)
-                    .addComponent(jTextFieldTotalVitorias)
-                    .addComponent(jTextFieldTotalLutas)
-                    .addComponent(jTextFieldEnvergadura)
-                    .addComponent(jComboBoxEstilo, 0, 234, Short.MAX_VALUE)
-                    .addComponent(jComboBoxCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jRadioButtonECapitao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButtonNaoECapitao)))
+                    .addComponent(jTextFieldTotalCartoesVermelhos)
+                    .addComponent(jTextFieldTotalCartoesAmarelos)
+                    .addComponent(jTextFieldTime)
+                    .addComponent(jComboBoxCategoria, 0, 234, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jSpinnerNumeroCamisa)
+                            .addComponent(jComboBoxCapitao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jComboBoxFuncaoTatica, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelPatrocinios)
@@ -801,28 +867,27 @@ public class CadastroFutebolista extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelCpitao)
-                            .addComponent(jRadioButtonECapitao)
-                            .addComponent(jRadioButtonNaoECapitao))
+                            .addComponent(jComboBoxCapitao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxEstilo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelNumeroDaCamisa))
+                            .addComponent(jLabelNumeroDaCamisa)
+                            .addComponent(jSpinnerNumeroCamisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelTime)
-                            .addComponent(jTextFieldEnvergadura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelPosicao)
-                            .addComponent(jTextFieldTotalLutas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelFuncaoTatica)
+                            .addComponent(jComboBoxFuncaoTatica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelCartoesAmarelos)
-                            .addComponent(jTextFieldTotalVitorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldTotalCartoesAmarelos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelTotalVitoriasNocaute)
-                            .addComponent(jTextFieldTotalNocaute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextFieldTotalCartoesVermelhos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -946,7 +1011,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBoxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoriaActionPerformed
-        this.atualizarCategoriaPeso();
+        this.atualizarCategoria();
     }//GEN-LAST:event_jComboBoxCategoriaActionPerformed
 
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
@@ -980,7 +1045,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPesoPropertyChange
 
     private void jTextFieldPesoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldPesoFocusLost
-        this.atualizarCategoriaPeso();
+        this.atualizarCategoria();
     }//GEN-LAST:event_jTextFieldPesoFocusLost
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
@@ -1060,7 +1125,6 @@ private void jTextFieldDataNascimentoActionPerformed(java.awt.event.ActionEvent 
 }//GEN-LAST:event_jTextFieldDataNascimentoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButtonAdicionarPatrocinio;
     private javax.swing.JButton jButtonAdicionarTelefone;
     private javax.swing.JButton jButtonAlterar;
@@ -1071,9 +1135,10 @@ private void jTextFieldDataNascimentoActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JButton jButtonRemoverPatrocinio;
     private javax.swing.JButton jButtonRemoverTelefone;
     private javax.swing.JButton jButtonSalvar;
+    private javax.swing.JComboBox jComboBoxCapitao;
     private javax.swing.JComboBox jComboBoxCategoria;
     private javax.swing.JComboBox jComboBoxEstado;
-    private javax.swing.JComboBox jComboBoxEstilo;
+    private javax.swing.JComboBox jComboBoxFuncaoTatica;
     private javax.swing.JComboBox jComboBoxSexo;
     private javax.swing.JLabel jLabelAltura;
     private javax.swing.JLabel jLabelBairro;
@@ -1086,6 +1151,7 @@ private void jTextFieldDataNascimentoActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JLabel jLabelCpitao;
     private javax.swing.JLabel jLabelDataNascimento;
     private javax.swing.JLabel jLabelEstado;
+    private javax.swing.JLabel jLabelFuncaoTatica;
     private javax.swing.JLabel jLabelListaFutebolistas;
     private javax.swing.JLabel jLabelLogradouro;
     private javax.swing.JLabel jLabelNome;
@@ -1096,7 +1162,6 @@ private void jTextFieldDataNascimentoActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JLabel jLabelPais;
     private javax.swing.JLabel jLabelPatrocinios;
     private javax.swing.JLabel jLabelPeso;
-    private javax.swing.JLabel jLabelPosicao;
     private javax.swing.JLabel jLabelRg;
     private javax.swing.JLabel jLabelSexo;
     private javax.swing.JLabel jLabelTelefones;
@@ -1107,12 +1172,11 @@ private void jTextFieldDataNascimentoActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButtonECapitao;
-    private javax.swing.JRadioButton jRadioButtonNaoECapitao;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JSpinner jSpinnerNumeroCamisa;
     private static javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTableListaFutebolistas;
@@ -1123,7 +1187,6 @@ private void jTextFieldDataNascimentoActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JTextField jTextFieldComplemento;
     private javax.swing.JTextField jTextFieldCpf;
     private javax.swing.JTextField jTextFieldDataNascimento;
-    private javax.swing.JTextField jTextFieldEnvergadura;
     private javax.swing.JTextField jTextFieldLogradouro;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldNomeMae;
@@ -1132,8 +1195,8 @@ private void jTextFieldDataNascimentoActionPerformed(java.awt.event.ActionEvent 
     private javax.swing.JTextField jTextFieldPais;
     private javax.swing.JTextField jTextFieldPeso;
     private javax.swing.JTextField jTextFieldRg;
-    private javax.swing.JTextField jTextFieldTotalLutas;
-    private javax.swing.JTextField jTextFieldTotalNocaute;
-    private javax.swing.JTextField jTextFieldTotalVitorias;
+    private javax.swing.JTextField jTextFieldTime;
+    private javax.swing.JTextField jTextFieldTotalCartoesAmarelos;
+    private javax.swing.JTextField jTextFieldTotalCartoesVermelhos;
     // End of variables declaration//GEN-END:variables
 }
