@@ -1,5 +1,10 @@
-package controleatleta;
+package telasDeCadastro;
 
+import controleatleta.ControleFutebolista;
+import controleatleta.Endereco;
+import controleatleta.Futebolista;
+import controleatleta.Patrocinio;
+import validacoes.Validacoes;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,27 +16,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 public class CadastroFutebolista extends javax.swing.JFrame {
-
-    private final byte FUNCAO_TATICA_GOLEIRO_INDICE = 0;
-    private final byte FUNCAO_TATICA_DEFESA_INDICE = 1;
-    private final byte FUNCAO_TATICA_MEIO_CAMPO_INDICE = 2;
-    private final byte FUNCAO_TATICA_ATAQUE_INDICE = 3;
-    private final char FUNCAO_TATICA_GOLEIRO_VALOR = 'G';
-    private final char FUNCAO_TATICA_DEFESA_VALOR = 'D';
-    private final char FUNCAO_TATICA_MEIO_CAMPO_VALOR = 'M';
-    private final char FUNCAO_TATICA_ATAQUE_VALOR = 'A';
-    private final byte SEXO_MASCULINO_INDICE = 0;
-    private final byte SEXO_FEMININO_INDICE = 1;
-    private final char SEXO_MASCULINO_VALOR = 'M';
-    private final char SEXO_FEMININO_VALOR = 'F';
-    private final byte CATEGORIA_AMADOR_INDICE = 0;
-    private final byte CATEGORIA_PROFISSIONAL_INDICE = 1;
-    private final char CATEGORIA_AMADOR_VALOR = 'A';
-    private final char CATEGORIA_PROFISSIONAL_VALOR = 'P';
-    private final byte NAO_E_CAPITAO_INDICE = 0;
-    private final byte E_CAPITAO_INDICE = 1;
-    private final char NAO_E_CAPITAO_VALOR = 'N';
-    private final char E_CAPITAO_VALOR = 'S';
+    
     private DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     private ControleFutebolista controleFutebolista;
     private Futebolista umFutebolista;
@@ -120,44 +105,44 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         }
 
         switch (umFutebolista.getSexo()) {
-            case SEXO_MASCULINO_VALOR:
-                jComboBoxSexo.setSelectedIndex(SEXO_MASCULINO_INDICE);
+            case IndicesEValoresParaFutebolista.SEXO_MASCULINO_VALOR:
+                jComboBoxSexo.setSelectedIndex(IndicesEValoresParaFutebolista.SEXO_MASCULINO_INDICE);
                 break;
-            case SEXO_FEMININO_VALOR:
-                jComboBoxSexo.setSelectedIndex(SEXO_FEMININO_INDICE);
+            case IndicesEValoresParaFutebolista.SEXO_FEMININO_VALOR:
+                jComboBoxSexo.setSelectedIndex(IndicesEValoresParaFutebolista.SEXO_FEMININO_INDICE);
                 break;
         }
         
         switch(umFutebolista.getCapitao()){
-            case E_CAPITAO_VALOR:
-                jComboBoxCapitao.setSelectedIndex(E_CAPITAO_INDICE);
+            case IndicesEValoresParaFutebolista.EH_CAPITAO_VALOR:
+                jComboBoxCapitao.setSelectedIndex(IndicesEValoresParaFutebolista.EH_CAPITAO_INDICE);
                 break;
-            case NAO_E_CAPITAO_VALOR:
-                jComboBoxCapitao.setSelectedIndex(NAO_E_CAPITAO_INDICE);
+            case IndicesEValoresParaFutebolista.NAO_EH_CAPITAO_VALOR:
+                jComboBoxCapitao.setSelectedIndex(IndicesEValoresParaFutebolista.NAO_EH_CAPITAO_INDICE);
                 break;
         }
 
         switch (umFutebolista.getFuncaoTatica()) {
-            case FUNCAO_TATICA_GOLEIRO_VALOR:
-                jComboBoxFuncaoTatica.setSelectedIndex(FUNCAO_TATICA_GOLEIRO_INDICE);
+            case IndicesEValoresParaFutebolista.FUNCAO_TATICA_GOLEIRO_VALOR:
+                jComboBoxFuncaoTatica.setSelectedIndex(IndicesEValoresParaFutebolista.FUNCAO_TATICA_GOLEIRO_INDICE);
                 break;
-             case FUNCAO_TATICA_DEFESA_VALOR:
-                jComboBoxFuncaoTatica.setSelectedIndex(FUNCAO_TATICA_DEFESA_INDICE);
+             case IndicesEValoresParaFutebolista.FUNCAO_TATICA_DEFESA_VALOR:
+                jComboBoxFuncaoTatica.setSelectedIndex(IndicesEValoresParaFutebolista.FUNCAO_TATICA_DEFESA_INDICE);
                 break;
-             case FUNCAO_TATICA_MEIO_CAMPO_VALOR:
-                jComboBoxFuncaoTatica.setSelectedIndex(FUNCAO_TATICA_MEIO_CAMPO_INDICE);
+             case IndicesEValoresParaFutebolista.FUNCAO_TATICA_MEIO_CAMPO_VALOR:
+                jComboBoxFuncaoTatica.setSelectedIndex(IndicesEValoresParaFutebolista.FUNCAO_TATICA_MEIO_CAMPO_INDICE);
                 break;
-             case FUNCAO_TATICA_ATAQUE_VALOR:
-                jComboBoxFuncaoTatica.setSelectedIndex(FUNCAO_TATICA_ATAQUE_INDICE);
+             case IndicesEValoresParaFutebolista.FUNCAO_TATICA_ATAQUE_VALOR:
+                jComboBoxFuncaoTatica.setSelectedIndex(IndicesEValoresParaFutebolista.FUNCAO_TATICA_ATAQUE_INDICE);
                 break;
         }
         
         switch (umFutebolista.getCategoria()) {
-            case CATEGORIA_AMADOR_VALOR:
-                jComboBoxCategoria.setSelectedIndex(CATEGORIA_AMADOR_INDICE);
+            case IndicesEValoresParaFutebolista.CATEGORIA_AMADOR_VALOR:
+                jComboBoxCategoria.setSelectedIndex(IndicesEValoresParaFutebolista.CATEGORIA_AMADOR_INDICE);
                 break;
-            case CATEGORIA_PROFISSIONAL_VALOR:
-                jComboBoxCategoria.setSelectedIndex(CATEGORIA_PROFISSIONAL_INDICE);
+            case IndicesEValoresParaFutebolista.CATEGORIA_PROFISSIONAL_VALOR:
+                jComboBoxCategoria.setSelectedIndex(IndicesEValoresParaFutebolista.CATEGORIA_PROFISSIONAL_INDICE);
                 break;
         }
         
@@ -169,73 +154,40 @@ public class CadastroFutebolista extends javax.swing.JFrame {
 
         this.atualizarCategoria();
     }
-
+    
     private boolean validarCampos() {
-        if (jTextFieldNome.getText().trim().length() == 0) {
+        if (Validacoes.validarNome(jTextFieldNome.getText())){
             this.exibirInformacao("O valor do campo 'Nome' não foi informado.");
             jTextFieldNome.requestFocus();
             return false;
         }
-        if (jTextFieldDataNascimento.getText().length() != 0) {
-            try {
-                dateFormat.parse(jTextFieldDataNascimento.getText());
-            } catch (ParseException ex) {
-                this.exibirInformacao("O valor do campo 'Data de Nascimento' é inválido.");
-                jTextFieldDataNascimento.requestFocus();
-                return false;
-            }
+        if (Validacoes.validaDataNascimento(jTextFieldDataNascimento.getText())){
+             this.exibirInformacao("O valor do campo 'Data de Nascimento' é inválido.");
+             jTextFieldDataNascimento.requestFocus();
+             return false;
         }
-        try {
-            Double.parseDouble(jTextFieldAltura.getText());
-        } catch (Exception ex) {
-            this.exibirInformacao("O valor do campo 'Altura' é inválido.");
-            jTextFieldAltura.requestFocus();
-            return false;
+        if (Validacoes.validaAltura(jTextFieldAltura.getText())) {
+             this.exibirInformacao("O valor do campo 'Altura' é inválido.");
+             jTextFieldAltura.requestFocus();
+             return false;
         }
-        try {
-            Double.parseDouble(jTextFieldPeso.getText());
-        } catch (Exception ex) {
+        if (Validacoes.validaPeso(jTextFieldPeso.getText())) {
             this.exibirInformacao("O valor do campo 'Peso' é inválido.");
             jTextFieldPeso.requestFocus();
             return false;
+         }
+        if (Validacoes.validaNumero(jTextFieldNumero.getText())){
+             this.exibirInformacao("O valor do campo 'Número' é inválido.");
+             jTextFieldNumero.requestFocus();
+             return false;
         }
-        if (!jTextFieldNumero.getText().equals("")) {
-            try {
-                Integer.parseInt(jTextFieldNumero.getText());
-            } catch (Exception ex) {
-                this.exibirInformacao("O valor do campo 'Número' é inválido.");
-                jTextFieldNumero.requestFocus();
-                return false;
-            }
-        }
-        /*
-        try {
-            Double.parseDouble(jTextFieldTime.getText());
-        } catch (Exception ex) {
-            this.exibirInformacao("O valor do campo 'Envergadura' é inválido.");
-            jTextFieldTime.requestFocus();
-            return false;
-        }
-        
-        try {
-            Integer.parseInt(jTextFieldPosicao.getText());
-        } catch (Exception ex) {
-            this.exibirInformacao("O valor do campo 'Total de Lutas' é inválido.");
-            jTextFieldPosicao.requestFocus();
-            return false;
-        }
-        */
-        try {
-            Integer.parseInt(jTextFieldTotalCartoesVermelhos.getText());
-        } catch (Exception ex) {
-            this.exibirInformacao("O valor do campo 'Total de Nocautes' é inválido.");
+        if (Validacoes.validaCartoesVermelhos(jTextFieldTotalCartoesVermelhos.getText())) {
+            this.exibirInformacao("O valor do campo 'Total de Cartões Vermelhos' é inválido.");
             jTextFieldTotalCartoesVermelhos.requestFocus();
             return false;
         }
-        try {
-            Integer.parseInt(jTextFieldTotalCartoesAmarelos.getText());
-        } catch (Exception ex) {
-            this.exibirInformacao("O valor do campo 'Total de Vitórias' é inválido.");
+        if (Validacoes.validaCartoesAmarelos(jTextFieldTotalCartoesAmarelos.getText())) {
+            this.exibirInformacao("O valor do campo 'Total de Cartoes Amarelos' é inválido.");
             jTextFieldTotalCartoesAmarelos.requestFocus();
             return false;
         }
@@ -342,44 +294,44 @@ public class CadastroFutebolista extends javax.swing.JFrame {
 
 
         switch (jComboBoxSexo.getSelectedIndex()) {
-            case SEXO_MASCULINO_INDICE:
-                umFutebolista.setSexo(SEXO_MASCULINO_VALOR);
+            case IndicesEValoresParaFutebolista.SEXO_MASCULINO_INDICE:
+                umFutebolista.setSexo(IndicesEValoresParaFutebolista.SEXO_MASCULINO_VALOR);
                 break;
-            case SEXO_FEMININO_INDICE:
-                umFutebolista.setSexo(SEXO_FEMININO_VALOR);
+            case IndicesEValoresParaFutebolista.SEXO_FEMININO_INDICE:
+                umFutebolista.setSexo(IndicesEValoresParaFutebolista.SEXO_FEMININO_VALOR);
                 break;
         }
 
         switch (jComboBoxCategoria.getSelectedIndex()) {
-            case CATEGORIA_AMADOR_INDICE:
-                umFutebolista.setCategoria(CATEGORIA_AMADOR_VALOR);
+            case IndicesEValoresParaFutebolista.CATEGORIA_AMADOR_INDICE:
+                umFutebolista.setCategoria(IndicesEValoresParaFutebolista.CATEGORIA_AMADOR_VALOR);
                 break;
-            case CATEGORIA_PROFISSIONAL_INDICE:
-                umFutebolista.setCategoria(CATEGORIA_PROFISSIONAL_VALOR);
+            case IndicesEValoresParaFutebolista.CATEGORIA_PROFISSIONAL_INDICE:
+                umFutebolista.setCategoria(IndicesEValoresParaFutebolista.CATEGORIA_PROFISSIONAL_VALOR);
                 break;
         }
 
        switch (jComboBoxCapitao.getSelectedIndex()) {
-            case NAO_E_CAPITAO_INDICE:
-                umFutebolista.setCapitao(NAO_E_CAPITAO_VALOR);
+            case IndicesEValoresParaFutebolista.NAO_EH_CAPITAO_INDICE:
+                umFutebolista.setCapitao(IndicesEValoresParaFutebolista.NAO_EH_CAPITAO_VALOR);
                 break;
-            case E_CAPITAO_INDICE:
-                umFutebolista.setCapitao(E_CAPITAO_VALOR);
+            case IndicesEValoresParaFutebolista.EH_CAPITAO_INDICE:
+                umFutebolista.setCapitao(IndicesEValoresParaFutebolista.EH_CAPITAO_VALOR);
                 break;
         }
        
        switch (jComboBoxFuncaoTatica.getSelectedIndex()) {
-            case FUNCAO_TATICA_GOLEIRO_INDICE:
-                umFutebolista.setFuncaoTatica(FUNCAO_TATICA_GOLEIRO_VALOR);
+            case IndicesEValoresParaFutebolista.FUNCAO_TATICA_GOLEIRO_INDICE:
+                umFutebolista.setFuncaoTatica(IndicesEValoresParaFutebolista.FUNCAO_TATICA_GOLEIRO_VALOR);
                 break;
-             case FUNCAO_TATICA_DEFESA_INDICE:
-                umFutebolista.setFuncaoTatica(FUNCAO_TATICA_DEFESA_VALOR);
+             case IndicesEValoresParaFutebolista.FUNCAO_TATICA_DEFESA_INDICE:
+                umFutebolista.setFuncaoTatica(IndicesEValoresParaFutebolista.FUNCAO_TATICA_DEFESA_VALOR);
                 break;
-             case FUNCAO_TATICA_MEIO_CAMPO_INDICE:
-                umFutebolista.setFuncaoTatica(FUNCAO_TATICA_MEIO_CAMPO_VALOR);
+             case IndicesEValoresParaFutebolista.FUNCAO_TATICA_MEIO_CAMPO_INDICE:
+                umFutebolista.setFuncaoTatica(IndicesEValoresParaFutebolista.FUNCAO_TATICA_MEIO_CAMPO_VALOR);
                 break;
-             case FUNCAO_TATICA_ATAQUE_INDICE:
-                umFutebolista.setFuncaoTatica(FUNCAO_TATICA_ATAQUE_VALOR);
+             case IndicesEValoresParaFutebolista.FUNCAO_TATICA_ATAQUE_INDICE:
+                umFutebolista.setFuncaoTatica(IndicesEValoresParaFutebolista.FUNCAO_TATICA_ATAQUE_VALOR);
                 break;
         }
        
@@ -406,6 +358,18 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         }
         jTableListaFutebolistas.setModel(model);
     }
+    
+    private void pesquisarFutebolista(String nome) {
+        Futebolista futebolistaPesquisado = controleFutebolista.pesquisar(nome);
+
+        if (futebolistaPesquisado == null) {
+            exibirInformacao("Futebolista não encontrado.");
+        } else {
+            this.umFutebolista = futebolistaPesquisado;
+            this.preencherCampos();
+            this.habilitarDesabilitarCampos();
+        }
+    }
 
     private void exibirInformacao(String info) {
         JOptionPane.showMessageDialog(this, info, "Atenção", JOptionPane.INFORMATION_MESSAGE);
@@ -414,14 +378,13 @@ public class CadastroFutebolista extends javax.swing.JFrame {
     private void atualizarCategoria() {
         char categoria;
         switch (jComboBoxCategoria.getSelectedIndex()) {
-            case CATEGORIA_AMADOR_INDICE:
-                categoria = CATEGORIA_AMADOR_VALOR;
+            case IndicesEValoresParaFutebolista.CATEGORIA_AMADOR_INDICE:
+                categoria = IndicesEValoresParaFutebolista.CATEGORIA_AMADOR_VALOR;
                 break;
-            case CATEGORIA_PROFISSIONAL_INDICE:
-                categoria = CATEGORIA_PROFISSIONAL_VALOR;
+            case IndicesEValoresParaFutebolista.CATEGORIA_PROFISSIONAL_INDICE:
+                categoria = IndicesEValoresParaFutebolista.CATEGORIA_PROFISSIONAL_VALOR;
                 break;
-            default:
-                return;
+                
         }
     }
 
@@ -531,22 +494,6 @@ public class CadastroFutebolista extends javax.swing.JFrame {
 
         jLabelAltura.setText("Altura:");
 
-        jTextFieldPeso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPesoActionPerformed(evt);
-            }
-        });
-        jTextFieldPeso.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextFieldPesoFocusLost(evt);
-            }
-        });
-        jTextFieldPeso.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jTextFieldPesoPropertyChange(evt);
-            }
-        });
-
         jLabelPeso.setText("Peso:");
 
         jLabelNomePai.setText("Nome do Pai:");
@@ -580,12 +527,6 @@ public class CadastroFutebolista extends javax.swing.JFrame {
 
         jComboBoxSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
 
-        jTextFieldDataNascimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDataNascimentoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -615,7 +556,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonAdicionarTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -720,7 +661,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldComplemento, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
+                    .addComponent(jTextFieldComplemento, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
                     .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldLogradouro, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
                     .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -842,7 +783,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jSpinnerNumeroCamisa)
                             .addComponent(jComboBoxCapitao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jComboBoxFuncaoTatica, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jComboBoxFuncaoTatica, 0, 302, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelPatrocinios)
@@ -1038,16 +979,6 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         this.habilitarDesabilitarCampos();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
-    private void jTextFieldPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPesoActionPerformed
-    }//GEN-LAST:event_jTextFieldPesoActionPerformed
-
-    private void jTextFieldPesoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTextFieldPesoPropertyChange
-    }//GEN-LAST:event_jTextFieldPesoPropertyChange
-
-    private void jTextFieldPesoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldPesoFocusLost
-        this.atualizarCategoria();
-    }//GEN-LAST:event_jTextFieldPesoFocusLost
-
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         modoAlteracao = true;
         novoRegistro = false;
@@ -1085,18 +1016,6 @@ private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//
     }
 }//GEN-LAST:event_jButtonPesquisarActionPerformed
 
-    private void pesquisarFutebolista(String nome) {
-        Futebolista futebolistaPesquisado = controleFutebolista.pesquisar(nome);
-
-        if (futebolistaPesquisado == null) {
-            exibirInformacao("Futebolista não encontrado.");
-        } else {
-            this.umFutebolista = futebolistaPesquisado;
-            this.preencherCampos();
-            this.habilitarDesabilitarCampos();
-        }
-    }
-
 private void jButtonAdicionarPatrocinioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarPatrocinioActionPerformed
     CadastroPatrocinio cadastro = new CadastroPatrocinio(this, true);
     cadastro.setVisible(true);
@@ -1119,10 +1038,6 @@ private void jTableListaFutebolistasMouseClicked(java.awt.event.MouseEvent evt) 
         this.pesquisarFutebolista(nome);
     }
 }//GEN-LAST:event_jTableListaFutebolistasMouseClicked
-
-private void jTextFieldDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDataNascimentoActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_jTextFieldDataNascimentoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdicionarPatrocinio;

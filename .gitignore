@@ -1,2 +1,3 @@
 *.class
 ./ControleAtleta/build/classes/controleatleta/*.class
+/ControleAtleta/dist/

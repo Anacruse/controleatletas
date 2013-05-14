@@ -1,5 +1,6 @@
-package controleatleta;
+package telasDeCadastro;
 
+import controleatleta.Patrocinio;
 import javax.swing.JOptionPane;
 
 public class CadastroPatrocinio extends javax.swing.JDialog {
@@ -112,6 +113,7 @@ private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//G
 
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
                 CadastroPatrocinio dialog = new CadastroPatrocinio(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
